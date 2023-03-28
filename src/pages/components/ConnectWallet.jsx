@@ -5,7 +5,7 @@ const ConnectWallet = () => {
     <>
       <button className={styles.center}>
         <div className={styles.thirteen}>
-          <h1 className="text-lg font-medium">Connected</h1>
+          <h1 className="text-lg font-medium">Connect to login</h1>
         </div>
       </button>
     </>
