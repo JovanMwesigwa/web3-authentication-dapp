@@ -2,23 +2,10 @@ import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import ConnectWallet from './components/ConnectWallet'
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
-import { useWeb3React } from '@web3-react/core'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  const [isConnected, setIsConnected] = useState(false)
-
-  const { chainId } = useWeb3React()
-
-  const { push } = useRouter()
-
-  if (isConnected) {
-    push('/store')
-  }
-
   return (
     <>
       <Head>
@@ -28,13 +15,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        {/* Sure error log when a user is not connected to Alfajores network */}
-        {chainId && chainId != 44787 && (
-          <div className="absolute px-4 py-2 text-red-500 bg-red-100 border-2 border-red-500 rounded-md top-10">
-            <h1>Connect to Alfajores network only!</h1>
-          </div>
-        )}
-
         <div className={styles.description}>
           <p>Connect on Celo Alajores </p>
           <div>
@@ -48,10 +28,8 @@ export default function Home() {
           </div>
         </div>
 
-        <ConnectWallet
-          isConnected={isConnected}
-          setIsConnected={setIsConnected}
-        />
+        {/* Connect to login button */}
+        <ConnectWallet />
 
         <div className={styles.grid}>
           <a

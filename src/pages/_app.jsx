@@ -3,7 +3,7 @@ import { Web3Provider } from '@ethersproject/providers'
 import { Web3ReactProvider } from '@web3-react/core'
 
 function getLibrary(provider) {
-  return new Web3Provider(provider) // this will vary according to whether you use e.g. ethers or web3.js
+  return new Web3Provider(provider)
 }
 export default function App({ Component, pageProps }) {
   return (
